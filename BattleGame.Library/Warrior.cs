@@ -12,7 +12,7 @@ namespace BattleGame.Library
         public int Health { get; set; }
         public int AttackMax { get; set; }
         public int BlockMax { get; set; }
-        private Random random = new Random();
+        private readonly Random random = new Random();
 
         public Warrior(string name, int health, int attackMax, int blockMax)
         {

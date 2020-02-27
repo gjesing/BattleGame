@@ -11,10 +11,18 @@ namespace BattleGame.Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter name of warrior 1:");
-            Warrior warrior1 = new Warrior(Console.ReadLine(), 200, 120, 40);
-            Console.WriteLine("\nEnter name of warrior 2:");
-            Warrior warrior2 = new Warrior(Console.ReadLine(), 200, 120, 40);
+            Warrior warrior1 = new Warrior("", 200, 120, 40);
+            while (string.IsNullOrWhiteSpace(warrior1.Name))
+            {
+                Console.WriteLine("Enter name of warrior 1:");
+                warrior1.Name = Console.ReadLine();
+            }
+            Warrior warrior2 = new Warrior("", 200, 120, 40);
+            while (string.IsNullOrWhiteSpace(warrior2.Name))
+            {
+                Console.WriteLine("Enter name of warrior 2:");
+                warrior2.Name = Console.ReadLine();
+            }
             new Battle(warrior1, warrior2).StartFight();
         }
     }

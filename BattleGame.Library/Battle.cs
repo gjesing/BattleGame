@@ -35,11 +35,12 @@ namespace BattleGame.Library
         public void GetAttackResult(Warrior attacker, Warrior blocker)
         {
             int attack = attacker.Attack();
-            int damage = attack - blocker.Block(attack);
+            int block = blocker.Block(attack);
+            int damage = attack - block;
             blocker.Health -= damage;
             if (blocker.Health <= 0)
                 blocker.Health = 0;
-            Console.WriteLine($"\n{attacker.Name} attacks {blocker.Name} and deals {damage} damage.\n{blocker.Name} has {blocker.Health} health");
+            Console.WriteLine($"\n{attacker.Name} attacks {blocker.Name} with {attack} and {blocker.Name} blocks {block}\n{attacker.Name} deals {damage} damage\n{blocker.Name} has {blocker.Health} health");
             if (blocker.Health == 0)
                 Console.WriteLine($"\n{blocker.Name} has died and {attacker.Name} is victorious");
         }

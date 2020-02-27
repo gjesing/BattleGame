@@ -12,6 +12,7 @@ namespace BattleGame.Library
         public int Health { get; set; }
         public int AttackMax { get; set; }
         public int BlockMax { get; set; }
+        private Random random = new Random();
 
         public Warrior(string name, int health, int attackMax, int blockMax)
         {
@@ -21,8 +22,8 @@ namespace BattleGame.Library
             BlockMax = blockMax;
         }
 
-        public int Attack() => new Random().Next(1, AttackMax + 1);
+        public int Attack() => random.Next(1, AttackMax + 1);
 
-        public int Block(int attack) => attack < BlockMax ? new Random().Next(1, attack + 1) : new Random().Next(1, BlockMax + 1);
+        public int Block(int attack) => attack < BlockMax ? random.Next(1, attack + 1) : random.Next(1, BlockMax + 1);
     }
 }
